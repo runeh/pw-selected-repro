@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Testcase</title>
+    <style>
+      p {
+        max-width: 50em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Select box [disabled] snapshot test</h1>
+
+    <p>
+      To run test do:
+
+      <code>
+        <pre>
+npm install
+npm run test
+# or npm run test -- --ui to show UI</pre
+        >
+      </code>
+    </p>
+
+    <p>
+      Testcase with a <code>&lt;select&gt;</code> element where one of the
+      values has the <code>selected</code> prop set.
+    </p>
+
+    <p>See test file in <code>tests/example.spec.js</code></p>
+
+    <h2>Expected</h2>
+    <p>
+      When using <code>/children: deep-equal</code> in a combobox snapshot, the
+      snapshot should not match if the snapshot and the actual aria tree do not
+      have identical <code>[selected]</code> flags.
+    </p>
+
+    <h2>Actual</h2>
+    <p>
+      The snapshot matches both when the
+      <code>[selected] props is present or missing</code>. It does however not
+      match if there is a <code>[selected]</code> property on the wrong select
+      element in the snapshot.
+    </p>
+
+    <select name="example-1">
+      <option value="1">Value 1</option>
+      <option value="2" selected>Value 2</option>
+      <option value="3">Value 3</option>
+    </select>
+  </body>
+</html>
